@@ -58,18 +58,17 @@ class PurchaseWrapper {
 
   @override
   int get hashCode => Object.hash(
-    orderId,
-    packageName,
-    purchaseTime,
-    purchaseToken,
-    signature,
-    products.hashCode,
-    isAutoRenewing,
-    originalJson,
-    isAcknowledged,
-    purchaseState,
-    pendingPurchaseUpdate,
-  );
+      orderId,
+      packageName,
+      purchaseTime,
+      purchaseToken,
+      signature,
+      products.hashCode,
+      isAutoRenewing,
+      originalJson,
+      isAcknowledged,
+      purchaseState,
+      pendingPurchaseUpdate);
 
   /// The unique ID for this purchase. Corresponds to the Google Payments order
   /// ID.
@@ -150,6 +149,7 @@ class PurchaseWrapper {
 }
 
 @immutable
+
 /// Represents a pending change/update to the existing purchase.
 ///
 /// This wraps [`com.android.billingclient.api.Purchase.PendingPurchaseUpdate`](https://developer.android.com/reference/com/android/billingclient/api/Purchase.PendingPurchaseUpdate).
@@ -180,7 +180,10 @@ class PendingPurchaseUpdateWrapper {
   }
 
   @override
-  int get hashCode => Object.hash(purchaseToken, products.hashCode);
+  int get hashCode => Object.hash(
+        purchaseToken,
+        products.hashCode,
+      );
 }
 
 /// Data structure representing a purchase history record.
@@ -249,13 +252,13 @@ class PurchaseHistoryRecordWrapper {
 
   @override
   int get hashCode => Object.hash(
-    purchaseTime,
-    purchaseToken,
-    signature,
-    products.hashCode,
-    originalJson,
-    developerPayload,
-  );
+        purchaseTime,
+        purchaseToken,
+        signature,
+        products.hashCode,
+        originalJson,
+        developerPayload,
+      );
 }
 
 /// A data struct representing the result of a transaction.
@@ -268,11 +271,10 @@ class PurchaseHistoryRecordWrapper {
 @immutable
 class PurchasesResultWrapper implements HasBillingResponse {
   /// Creates a [PurchasesResultWrapper] with the given purchase result details.
-  const PurchasesResultWrapper({
-    required this.responseCode,
-    required this.billingResult,
-    required this.purchasesList,
-  });
+  const PurchasesResultWrapper(
+      {required this.responseCode,
+      required this.billingResult,
+      required this.purchasesList});
 
   @override
   bool operator ==(Object other) {
@@ -314,10 +316,8 @@ class PurchasesResultWrapper implements HasBillingResponse {
 @immutable
 class PurchasesHistoryResult implements HasBillingResponse {
   /// Creates a [PurchasesHistoryResult] with the provided history.
-  const PurchasesHistoryResult({
-    required this.billingResult,
-    required this.purchaseHistoryRecordList,
-  });
+  const PurchasesHistoryResult(
+      {required this.billingResult, required this.purchaseHistoryRecordList});
 
   @override
   BillingResponse get responseCode => billingResult.responseCode;

@@ -18,11 +18,10 @@ const String kInvalidAlternativeBillingReportingDetailsErrorMessage =
 class AlternativeBillingOnlyReportingDetailsWrapper
     implements HasBillingResponse {
   /// Constructs the object with [responseCode] and [debugMessage].
-  const AlternativeBillingOnlyReportingDetailsWrapper({
-    required this.responseCode,
-    this.debugMessage,
-    this.externalTransactionToken = '',
-  });
+  const AlternativeBillingOnlyReportingDetailsWrapper(
+      {required this.responseCode,
+      this.debugMessage,
+      this.externalTransactionToken = ''});
 
   /// Response code returned in the Play Billing API calls.
   @override

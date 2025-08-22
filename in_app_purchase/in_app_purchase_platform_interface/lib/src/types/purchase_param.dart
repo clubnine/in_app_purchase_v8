@@ -7,7 +7,11 @@ import 'product_details.dart';
 /// The parameter object for generating a purchase.
 class PurchaseParam {
   /// Creates a new purchase parameter object with the given data.
-  PurchaseParam({required this.productDetails, this.applicationUserName,  this.androidProfileId});
+  PurchaseParam({
+    required this.productDetails,
+    this.applicationUserName,
+    this.androidProfileId
+  });
 
   /// The product to create payment for.
   ///

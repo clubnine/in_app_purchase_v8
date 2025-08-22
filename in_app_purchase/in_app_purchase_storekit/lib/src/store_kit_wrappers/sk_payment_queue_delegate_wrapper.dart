@@ -25,7 +25,8 @@ abstract class SKPaymentQueueDelegateWrapper {
   bool shouldContinueTransaction(
     SKPaymentTransactionWrapper transaction,
     SKStorefrontWrapper storefront,
-  ) => true;
+  ) =>
+      true;
 
   /// Called by the system to check whether to immediately show the price
   /// consent form.

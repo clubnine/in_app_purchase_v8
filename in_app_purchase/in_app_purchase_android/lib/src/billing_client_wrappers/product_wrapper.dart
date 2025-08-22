@@ -10,7 +10,10 @@ import '../../billing_client_wrappers.dart';
 @immutable
 class ProductWrapper {
   /// Creates a new [ProductWrapper].
-  const ProductWrapper({required this.productId, required this.productType});
+  const ProductWrapper({
+    required this.productId,
+    required this.productType,
+  });
 
   /// The product identifier.
   final String productId;

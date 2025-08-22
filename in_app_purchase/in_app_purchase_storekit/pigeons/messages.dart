@@ -4,21 +4,19 @@
 
 import 'package:pigeon/pigeon.dart';
 
-@ConfigurePigeon(
-  PigeonOptions(
-    dartOut: 'lib/src/messages.g.dart',
-    dartTestOut: 'test/test_api.g.dart',
-    objcHeaderOut:
-        'darwin/in_app_purchase_storekit/Sources/in_app_purchase_storekit_objc/include/in_app_purchase_storekit_objc/messages.g.h',
-    objcSourceOut:
-        'darwin/in_app_purchase_storekit/Sources/in_app_purchase_storekit_objc/messages.g.m',
-    objcOptions: ObjcOptions(
-      prefix: 'FIA',
-      headerIncludePath: './include/in_app_purchase_storekit_objc/messages.g.h',
-    ),
-    copyrightHeader: 'pigeons/copyright.txt',
+@ConfigurePigeon(PigeonOptions(
+  dartOut: 'lib/src/messages.g.dart',
+  dartTestOut: 'test/test_api.g.dart',
+  objcHeaderOut:
+      'darwin/in_app_purchase_storekit/Sources/in_app_purchase_storekit_objc/include/in_app_purchase_storekit_objc/messages.g.h',
+  objcSourceOut:
+      'darwin/in_app_purchase_storekit/Sources/in_app_purchase_storekit_objc/messages.g.m',
+  objcOptions: ObjcOptions(
+    prefix: 'FIA',
+    headerIncludePath: './include/in_app_purchase_storekit_objc/messages.g.h',
   ),
-)
+  copyrightHeader: 'pigeons/copyright.txt',
+))
 class SKPaymentTransactionMessage {
   SKPaymentTransactionMessage({
     required this.payment,
@@ -94,11 +92,8 @@ class SKPaymentMessage {
 }
 
 class SKErrorMessage {
-  const SKErrorMessage({
-    required this.code,
-    required this.domain,
-    required this.userInfo,
-  });
+  const SKErrorMessage(
+      {required this.code, required this.domain, required this.userInfo});
 
   final int code;
   final String domain;
@@ -132,26 +127,23 @@ class SKStorefrontMessage {
 }
 
 class SKProductsResponseMessage {
-  const SKProductsResponseMessage({
-    required this.products,
-    required this.invalidProductIdentifiers,
-  });
+  const SKProductsResponseMessage(
+      {required this.products, required this.invalidProductIdentifiers});
   final List<SKProductMessage>? products;
   final List<String>? invalidProductIdentifiers;
 }
 
 class SKProductMessage {
-  const SKProductMessage({
-    required this.productIdentifier,
-    required this.localizedTitle,
-    required this.priceLocale,
-    required this.price,
-    this.localizedDescription,
-    this.subscriptionGroupIdentifier,
-    this.subscriptionPeriod,
-    this.introductoryPrice,
-    this.discounts,
-  });
+  const SKProductMessage(
+      {required this.productIdentifier,
+      required this.localizedTitle,
+      required this.priceLocale,
+      required this.price,
+      this.localizedDescription,
+      this.subscriptionGroupIdentifier,
+      this.subscriptionPeriod,
+      this.introductoryPrice,
+      this.discounts});
 
   final String productIdentifier;
   final String localizedTitle;
@@ -185,15 +177,14 @@ class SKPriceLocaleMessage {
 }
 
 class SKProductDiscountMessage {
-  const SKProductDiscountMessage({
-    required this.price,
-    required this.priceLocale,
-    required this.numberOfPeriods,
-    required this.paymentMode,
-    required this.subscriptionPeriod,
-    required this.identifier,
-    required this.type,
-  });
+  const SKProductDiscountMessage(
+      {required this.price,
+      required this.priceLocale,
+      required this.numberOfPeriods,
+      required this.paymentMode,
+      required this.subscriptionPeriod,
+      required this.identifier,
+      required this.type});
 
   final String price;
   final SKPriceLocaleMessage priceLocale;
@@ -227,16 +218,19 @@ enum SKProductDiscountPaymentModeMessage {
 }
 
 class SKProductSubscriptionPeriodMessage {
-  SKProductSubscriptionPeriodMessage({
-    required this.numberOfUnits,
-    required this.unit,
-  });
+  SKProductSubscriptionPeriodMessage(
+      {required this.numberOfUnits, required this.unit});
 
   final int numberOfUnits;
   final SKSubscriptionPeriodUnitMessage unit;
 }
 
-enum SKSubscriptionPeriodUnitMessage { day, week, month, year }
+enum SKSubscriptionPeriodUnitMessage {
+  day,
+  week,
+  month,
+  year,
+}
 
 @HostApi(dartHostTestHandler: 'TestInAppPurchaseApi')
 abstract class InAppPurchaseAPI {
@@ -251,8 +245,7 @@ abstract class InAppPurchaseAPI {
 
   @async
   SKProductsResponseMessage startProductRequest(
-    List<String> productIdentifiers,
-  );
+      List<String> productIdentifiers);
 
   void finishTransaction(Map<String, Object?> finishMap);
 

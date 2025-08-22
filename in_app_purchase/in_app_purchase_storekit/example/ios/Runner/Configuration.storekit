@@ -82,10 +82,7 @@
         "name" : "Purchase"
       },
       {
-        "current" : {
-          "index" : 0,
-          "type" : "verification"
-        },
+        "current" : null,
         "enabled" : false,
         "name" : "Verification"
       },
@@ -103,10 +100,7 @@
         "name" : "Subscription Status"
       },
       {
-        "current" : {
-          "index" : 3,
-          "type" : "generic"
-        },
+        "current" : null,
         "enabled" : false,
         "name" : "App Transaction"
       },
@@ -121,10 +115,7 @@
         "name" : "Refund Request Sheet"
       },
       {
-        "current" : {
-          "index" : 4,
-          "type" : "generic"
-        },
+        "current" : null,
         "enabled" : false,
         "name" : "Offer Code Redeem Sheet"
       }
@@ -140,15 +131,7 @@
       "subscriptions" : [
         {
           "adHocOffers" : [
-            {
-              "displayPrice" : "0.99",
-              "internalID" : "8253DF07",
-              "numberOfPeriods" : 1,
-              "offerID" : "subscription_silver_big_promo",
-              "paymentMode" : "payAsYouGo",
-              "referenceName" : "Big Promo",
-              "subscriptionPeriod" : "P1W"
-            }
+
           ],
           "codeOffers" : [
 
@@ -171,16 +154,7 @@
           "subscriptionGroupID" : "D0FEE8D8",
           "type" : "RecurringSubscription",
           "winbackOffers" : [
-            {
-              "displayPrice" : "0.99",
-              "internalID" : "91AB5625",
-              "isEligible" : true,
-              "numberOfPeriods" : 1,
-              "offerID" : "subscription_silver_winback_offer",
-              "paymentMode" : "payAsYouGo",
-              "referenceName" : "Win Back Offer",
-              "subscriptionPeriod" : "P1W"
-            }
+
           ]
         }
       ]
